@@ -14,5 +14,8 @@
     "node": "~0.5.8 || 0.6"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "mocha": "",
+    "should": ""
+  }
 }
