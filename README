@@ -1,1 +1,17 @@
 osm-read - an openstreetmap XML data parser for node.js
+
+1) Introduction
+2) TODOs
+
+
+------------------------------------------------------------------------
+Introduction
+
+osm-read parses openstreetmap XML files as described in
+http://wiki.openstreetmap.org/wiki/OSM_XML
+
+
+------------------------------------------------------------------------
+TODOs
+
+* parse timestamps
