@@ -5,7 +5,7 @@ describe('osmread', function(){
     describe('when xml with invalid syntax is parsed', function(){
         it('then an error should be raised', function(done){
             osmread.parse({
-                filePath: 'test/main.js',
+                filePath: 'test/invalid.xml',
                 error: function(msg){
                     done();
                 }
