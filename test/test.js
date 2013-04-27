@@ -60,5 +60,9 @@ describe('osmread', function(){
         it('then first parsed node has lon -0.1080108', function(){
             parsedNodes[0].lon.should.be.within(-0.108011, -0.108010);
         });
+
+        it('then first parsed node has version 1', function(){
+            parsedNodes[0].version.should.be.equal(1);
+        });
     });
 });
