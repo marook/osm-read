@@ -80,5 +80,12 @@ describe('osmread', function(){
         it('then first parsed node is visible', function(){
             parsedNodes[0].visible.should.be.equal(true);
         });
+
+        it('then third parsed node has name and is cafe', function(){
+            var thirdNode = parsedNodes[2];
+
+            thirdNode.tags.name.should.be.equal('Jam\'s Sandwich Bar');
+            thirdNode.tags.amenity.should.be.equal('cafe');
+        });
     });
 });
