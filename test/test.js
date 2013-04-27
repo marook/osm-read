@@ -95,5 +95,14 @@ describe('osmread', function(){
         it('then way callback should deliver 1 way', function(){
             parsedWays.length.should.be.equal(1);
         });
+
+        it('then first way should start with the following node refs: 304994979, 319408587', function(){
+            var nodeRefs;
+
+            nodeRefs = parsedWays[0].nodeRefs;
+
+            nodeRefs[0].should.be.equal('304994979');
+            nodeRefs[1].should.be.equal('319408587');
+        });
     });
 });
