@@ -16,7 +16,7 @@ describe('osmread', function(){
     describe('when test.xml is parsed', function(){
         var parsedBounds, parsedNodes;
 
-        beforeEach(function(done){
+        before(function(done){
             parsedBounds = [];
             parsedNodes = [];
             parsedWays = [];
