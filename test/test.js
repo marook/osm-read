@@ -46,11 +46,11 @@ describe('osmread', function(){
         });
 
         it('then node callback should deliver 6 nodes', function(){
-            parsedNodes.length.should.be.eql(6);
+            parsedNodes.length.should.be.equal(6);
         });
 
         it('then first parsed node has id 319408586', function(){
-            parsedNodes[0].id.should.be.eql('319408586');
+            parsedNodes[0].id.should.be.equal('319408586');
         });
 
         it('then first parsed node has lat 51.5074089', function(){
@@ -67,6 +67,10 @@ describe('osmread', function(){
 
         it('then first parsed node has changeset 440330', function(){
             parsedNodes[0].changeset.should.be.equal(440330);
+        });
+
+        it('then first parsed node has user smsm1', function(){
+            parsedNodes[0].user.should.be.equal('smsm1');
         });
     });
 });
