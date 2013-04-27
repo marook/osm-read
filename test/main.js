@@ -14,30 +14,34 @@ describe('osmread', function(){
     });
 
     describe('when test.xml is parsed', function(){
-        it('then bounds callback should min and max lat and long', function(done){
+        var parsedBounds, parsedNodes;
+
+        beforeEach(function(done){
+            parsedBounds = [];
+            parsedNodes = [];
+
             osmread.parse({
                 filePath: 'test/test.xml',
-                bounds: function(bounds){
-                    bounds.minlat.should.be.within(51.507360179555, 51.507360179556);
-
+                endDocument: function(){
                     done();
+                },
+                bounds: function(bounds){
+                    parsedBounds.push(bounds);
+                },
+                node: function(node){
+                    parsedNodes.push(node);
                 }
             });
         });
 
-        it('then node callback should deliver 6 nodes', function(done){
-            var nodeCount = 0;
+        it('then bounds callback should min and max lat and long', function(){
+            var bounds = parsedBounds[0];
 
-            osmread.parse({
-                filePath: 'test/test.xml',
-                node: function(node){
-                    nodeCount += 1;
+            bounds.minlat.should.be.within(51.507360179555, 51.507360179556);
+        });
 
-                    if(nodeCount === 6){
-                        done();
-                    }
-                }
-            });
+        it('then node callback should deliver 6 nodes', function(){
+            parsedNodes.length.should.eql(6);
         });
     });
 });
