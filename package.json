@@ -1,23 +1,31 @@
 {
-  "author": "Markus Pielmeier <markus.pielmeier@gmail.com>",
-  "name": "osm-read",
-  "description": "an openstreetmap XML data parser",
-  "version": "0.0.0",
-  "repository": {
-    "url": ""
-  },
-  "main": "lib/main.js",
-  "scripts": {
-    "test": "mocha test/*.js"
-  },
-  "engines": {
-    "node": "0.10"
-  },
-  "dependencies": {
-    "node-xml": "1.0.2"
-  },
-  "devDependencies": {
-    "mocha": "",
-    "should": ""
-  }
+    "author": "Markus Pielmeier <markus.pielmeier@gmail.com>",
+    "name": "osm-read",
+    "description": "an openstreetmap XML data parser",
+    "tags": [
+        "osm",
+        "openstreetmap"
+    ],
+    "version": "0.1.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/marook/osm-read.git"
+    },
+    "bugs": {
+        "url": "https://github.com/marook/osm-read/issues"
+    },
+    "main": "lib/main.js",
+    "scripts": {
+        "test": "mocha test/*.js"
+    },
+    "engines": [
+        "node >= 0.10.0"
+    ],
+    "dependencies": {
+        "node-xml": "1.0.2"
+    },
+    "devDependencies": {
+        "mocha": "",
+        "should": ""
+    }
 }
