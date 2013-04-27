@@ -72,5 +72,9 @@ describe('osmread', function(){
         it('then first parsed node has user smsm1', function(){
             parsedNodes[0].user.should.be.equal('smsm1');
         });
+
+        it('then first parsed node has uid 6871', function(){
+            parsedNodes[0].uid.should.be.equal('6871');
+        });
     });
 });
