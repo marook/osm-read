@@ -11,9 +11,11 @@
     "test": "mocha test/*.js"
   },
   "engines": {
-    "node": "~0.5.8 || 0.6"
+    "node": "0.10"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-xml": "1.0.2"
+  },
   "devDependencies": {
     "mocha": "",
     "should": ""
