@@ -64,5 +64,9 @@ describe('osmread', function(){
         it('then first parsed node has version 1', function(){
             parsedNodes[0].version.should.be.equal(1);
         });
+
+        it('then first parsed node has changeset 440330', function(){
+            parsedNodes[0].changeset.should.be.equal(440330);
+        });
     });
 });
