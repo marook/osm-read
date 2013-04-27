@@ -30,6 +30,11 @@ describe('osmread', function(){
                 },
                 node: function(node){
                     parsedNodes.push(node);
+                },
+                error: function(msg){
+                    should.fail(msg);
+
+                    done();
                 }
             });
         });
