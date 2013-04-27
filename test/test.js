@@ -46,11 +46,15 @@ describe('osmread', function(){
         });
 
         it('then node callback should deliver 6 nodes', function(){
-            parsedNodes.length.should.eql(6);
+            parsedNodes.length.should.be.eql(6);
         });
 
         it('then first parsed node has id 319408586', function(){
-            parsedNodes[0].id.should.eql('319408586');
+            parsedNodes[0].id.should.be.eql('319408586');
+        });
+
+        it('then first parsed node has lat 51.5074089', function(){
+            parsedNodes[0].lat.should.be.within(51.507408, 51.507409);
         });
     });
 });
