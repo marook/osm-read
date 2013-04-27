@@ -23,8 +23,21 @@ describe('osmread', function(){
                     done();
                 }
             });
+        });
 
-            
+        it('then node callback should deliver 6 nodes', function(done){
+            var nodeCount = 0;
+
+            osmread.parse({
+                filePath: 'test/test.xml',
+                node: function(node){
+                    nodeCount += 1;
+
+                    if(nodeCount === 6){
+                        done();
+                    }
+                }
+            });
         });
     });
 });
