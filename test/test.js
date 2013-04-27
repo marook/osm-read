@@ -56,5 +56,9 @@ describe('osmread', function(){
         it('then first parsed node has lat 51.5074089', function(){
             parsedNodes[0].lat.should.be.within(51.507408, 51.507409);
         });
+
+        it('then first parsed node has lon -0.1080108', function(){
+            parsedNodes[0].lon.should.be.within(-0.108011, -0.108010);
+        });
     });
 });
