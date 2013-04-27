@@ -19,6 +19,7 @@ describe('osmread', function(){
         beforeEach(function(done){
             parsedBounds = [];
             parsedNodes = [];
+            parsedWays = [];
 
             osmread.parse({
                 filePath: 'test/test.xml',
@@ -30,6 +31,9 @@ describe('osmread', function(){
                 },
                 node: function(node){
                     parsedNodes.push(node);
+                },
+                way: function(way){
+                    parsedWays.push(way);
                 },
                 error: function(msg){
                     should.fail(msg);
@@ -86,6 +90,10 @@ describe('osmread', function(){
 
             thirdNode.tags.name.should.be.equal('Jam\'s Sandwich Bar');
             thirdNode.tags.amenity.should.be.equal('cafe');
+        });
+
+        it('then way callback should deliver 1 way', function(){
+            parsedWays.length.should.be.equal(1);
         });
     });
 });
