@@ -1,7 +1,8 @@
 osm-read - an openstreetmap XML data parser for node.js
 
 1) Introduction
-2) TODOs
+2) Usage Example
+3) TODOs
 
 
 ------------------------------------------------------------------------
@@ -9,6 +10,29 @@ Introduction
 
 osm-read parses openstreetmap XML files as described in
 http://wiki.openstreetmap.org/wiki/OSM_XML
+
+
+------------------------------------------------------------------------
+Usage Example
+
+osmread.parse({
+    filePath: 'path/to/osm.xml',
+    endDocument: function(){
+        console.log('document end');
+    },
+    bounds: function(bounds){
+        console.log('bounds: ' + JSON.stringify(bounds));
+    },
+    node: function(node){
+        console.log('node: ' + JSON.stringify(node));
+    },
+    way: function(way){
+        console.log('way: ' + JSON.stringify(way));
+    },
+    error: function(msg){
+        console.log('error: ' + msg);
+    }
+});
 
 
 ------------------------------------------------------------------------
