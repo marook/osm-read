@@ -15,7 +15,7 @@ http://wiki.openstreetmap.org/wiki/OSM_XML
 ------------------------------------------------------------------------
 Usage Example
 
-osmread.parse({
+osmread.parseXml({
     filePath: 'path/to/osm.xml',
     endDocument: function(){
         console.log('document end');
