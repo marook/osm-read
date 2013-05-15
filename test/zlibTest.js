@@ -17,4 +17,19 @@ describe('zlib', function(){
         });
     });
 
+    it('deflate raw - inflate raw a string should restore original string', function(done){
+        var str;
+
+        str = 'lorem ipsum dolor sit amet';
+
+        zlib.deflateRaw(new Buffer(str), function(err, compressed){
+            zlib.inflateRaw(compressed, function(err, output){
+                output.toString().should.be.equal(str);
+
+                return done();
+            });
+        });
+
+    });
+
 });
