@@ -62,6 +62,12 @@ describe('pbf read', function(){
             });
         });
 
+        it('has one OSMData', function(){
+            var blocks = parser.findFileBlocksByBlobType('OSMData');
+
+            blocks.length.should.be.equal(1);
+        });
+
     });
 
 });
