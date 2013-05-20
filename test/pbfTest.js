@@ -68,6 +68,30 @@ describe('pbf read', function(){
             blocks.length.should.be.equal(1);
         });
 
+        describe('and first OSMData exists', function(){
+            var osmDataBlock, osmData;
+
+            before(function(done){
+                osmDataBlock = parser.findFileBlocksByBlobType('OSMData')[0];
+                parser.readBlock(osmDataBlock, function(err, block){
+                    if(err){
+                        should.fail();
+
+                        return done();
+                    }
+
+                    osmData = block;
+
+                    return done();
+                });
+            });
+
+            it('then primitivegroup has granulatiry is 100', function(){
+                osmData.granularity.should.be.equal(100);
+            });
+
+        });
+
     });
 
 });
