@@ -86,6 +86,10 @@ describe('pbf read', function(){
                 });
             });
 
+            it('then first stringtable entry is smsm1', function(){
+                osmData.stringtable.getEntry(1).should.be.equal('smsm1');
+            });
+
             it('then primitivegroup has granulatiry is 100', function(){
                 osmData.granularity.should.be.equal(100);
             });
