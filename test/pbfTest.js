@@ -120,6 +120,10 @@ describe('pbf read', function(){
                 it('then first node has longitude -0.1080108', function(){
                     pg.nodesView.get(0).lon.should.be.equal(-0.1080108);
                 });
+
+                it('then first node has id 319408586', function(){
+                    pg.nodesView.get(0).id.should.be.equal('319408586');
+                });
             });
 
         });
