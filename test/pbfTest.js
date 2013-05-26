@@ -124,6 +124,10 @@ describe('pbf read', function(){
                 it('then first node has id 319408586', function(){
                     pg.nodesView.get(0).id.should.be.equal('319408586');
                 });
+
+                it('then second node has id 319408587', function(){
+                    pg.nodesView.get(1).id.should.be.equal('319408587');
+                });
             });
 
         });
