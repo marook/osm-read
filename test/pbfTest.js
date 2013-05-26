@@ -90,8 +90,12 @@ describe('pbf read', function(){
                 osmData.stringtable.getEntry(1).should.be.equal('smsm1');
             });
 
-            it('then primitivegroup has granulatiry is 100', function(){
+            it('then granulatiry is 100', function(){
                 osmData.granularity.should.be.equal(100);
+            });
+
+            it('then two primitivegroups exist', function(){
+                osmData.primitivegroup.length.should.be.equal(2);
             });
 
         });
