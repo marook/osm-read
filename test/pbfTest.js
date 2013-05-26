@@ -116,6 +116,10 @@ describe('pbf read', function(){
                 it('then first node has latitude 51.5074089', function(){
                     pg.nodesView.get(0).lat.should.be.equal(51.5074089);
                 });
+
+                it('then first node has longitude -0.1080108', function(){
+                    pg.nodesView.get(0).lon.should.be.equal(-0.1080108);
+                });
             });
 
         });
