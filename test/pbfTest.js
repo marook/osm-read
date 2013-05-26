@@ -98,12 +98,20 @@ describe('pbf read', function(){
                 osmData.primitivegroup.length.should.be.equal(2);
             });
 
-            it('then first primitivegroup has 6 nodes', function(){
-                osmData.primitivegroup[0].nodesView.length.should.be.equal(6);
-            });
-
             it('then second primitivegroup has 0 nodes', function(){
                 osmData.primitivegroup[1].nodesView.length.should.be.equal(0);
+            });
+
+            describe('and first primitivegroup exists', function(){
+                var pg;
+
+                before(function(){
+                    pg = osmData.primitivegroup[0];
+                });
+
+                it('then pg has 6 nodes', function(){
+                    pg.nodesView.length.should.be.equal(6);
+                });
             });
 
         });
