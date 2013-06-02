@@ -132,6 +132,10 @@ describe('pbf read', function(){
                 it('then third node has tag amenity=cafe', function(){
                     pg.nodesView.get(2).tags.amenity.should.be.equal('cafe');
                 });
+
+                it('then six\'th node\'s tags is defined', function(){
+                    should.exist(pg.nodesView.get(5).tags);
+                });
             });
 
         });
