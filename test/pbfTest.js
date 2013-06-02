@@ -128,6 +128,10 @@ describe('pbf read', function(){
                 it('then second node has id 319408587', function(){
                     pg.nodesView.get(1).id.should.be.equal('319408587');
                 });
+
+                it('then third node has tag amenity=cafe', function(){
+                    pg.nodesView.get(2).tags.amenity.should.be.equal('cafe');
+                });
             });
 
         });
