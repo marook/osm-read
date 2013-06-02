@@ -133,8 +133,8 @@ describe('pbf read', function(){
                     pg.nodesView.get(2).tags.amenity.should.be.equal('cafe');
                 });
 
-                it('then six\'th node\'s tags is defined', function(){
-                    should.exist(pg.nodesView.get(5).tags);
+                it('then last node\'s tags should be defined', function(){
+                    should.exist(pg.nodesView.get(pg.nodesView.length - 1).tags);
                 });
             });
 
