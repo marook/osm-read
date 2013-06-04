@@ -1,4 +1,4 @@
-osm-read - an openstreetmap XML data parser for node.js
+osm-read - an openstreetmap XML and PBF parser for node.js
 
 1) Introduction
 2) Usage Example
@@ -8,12 +8,16 @@ osm-read - an openstreetmap XML data parser for node.js
 ------------------------------------------------------------------------
 Introduction
 
-osm-read parses openstreetmap XML files as described in
-http://wiki.openstreetmap.org/wiki/OSM_XML
+osm-read parses openstreetmap XML and PBF files as described in
+http://wiki.openstreetmap.org/wiki/OSM_XML and
+http://wiki.openstreetmap.org/wiki/PBF_Format
 
 
 ------------------------------------------------------------------------
 Usage Example
+
+The following code is used to parse openstreetmap XML files in a SAX
+parser like callback way.
 
 osmread.parseXml({
     filePath: 'path/to/osm.xml',
@@ -33,6 +37,32 @@ osmread.parseXml({
         console.log('error: ' + msg);
     }
 });
+
+
+The following code allows to create a random access openstreetmap PBF
+file parser:
+
+osmread.parsePbf({
+    filePath: 'path/to/osm.pbf',
+    callback: function(err, parser){
+        if(err){
+            // TODO handle error
+        }
+
+        parser.readBlock(parser.findFileBlocksByBlobType('OSMHeader'), function(err, block){
+            console.log('header block');
+            console.log(block);
+
+            parser.close(function(err){
+                if(err){
+                    // TODO handle error
+                }
+            });
+        });
+    });
+});
+
+Don't forget to close the parse after usage!
 
 
 ------------------------------------------------------------------------
