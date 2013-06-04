@@ -138,6 +138,22 @@ describe('pbf read', function(){
                 });
             });
 
+            describe('and second primitivegroup exists', function(){
+                var pg;
+
+                before(function(){
+                    pg = osmData.primitivegroup[1];
+                });
+
+                it('then pg has one way', function(){
+                    pg.waysView.length.should.be.equal(1);
+                });
+
+                it('then first way has id 27776903', function(){
+                    pg.waysView.get(0).id.should.be.equal('27776903');
+                });
+            });
+
         });
 
     });
