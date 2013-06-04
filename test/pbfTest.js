@@ -149,12 +149,21 @@ describe('pbf read', function(){
                     pg.waysView.length.should.be.equal(1);
                 });
 
-                it('then first way has id 27776903', function(){
-                    pg.waysView.get(0).id.should.be.equal('27776903');
-                });
+                describe('and first way exists', function(){
+                    var way;
 
-                it('then first way has tag highway=service', function(){
-                    pg.waysView.get(0).tags.highway.should.be.equal('service');
+                    before(function(){
+                        way = pg.waysView.get(0);
+                    });
+
+                    it('then way has id 27776903', function(){
+                        way.id.should.be.equal('27776903');
+                    });
+
+                    it('then way has tag highway=service', function(){
+                        way.tags.highway.should.be.equal('service');
+                    });
+
                 });
             });
 
