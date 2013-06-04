@@ -168,6 +168,10 @@ describe('pbf read', function(){
                         way.nodeRefs[0].should.be.equal('304994979');
                     });
 
+                    it('then second way node ref has id 319408587', function(){
+                        way.nodeRefs[1].should.be.equal('319408587');
+                    });
+
                 });
             });
 
