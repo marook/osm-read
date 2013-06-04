@@ -152,6 +152,10 @@ describe('pbf read', function(){
                 it('then first way has id 27776903', function(){
                     pg.waysView.get(0).id.should.be.equal('27776903');
                 });
+
+                it('then first way has tag highway=service', function(){
+                    pg.waysView.get(0).tags.highway.should.be.equal('service');
+                });
             });
 
         });
