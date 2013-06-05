@@ -1,19 +1,8 @@
 var should = require('should');
 var osmread = require('../lib/main');
 
-describe('osmread', function(){
-    describe('when xml with invalid syntax is parsed', function(){
-        it('then an error should be raised', function(done){
-            osmread.parse({
-                filePath: 'test/invalid.xml',
-                error: function(msg){
-                    done();
-                }
-            });
-        });
-    });
-
-    describe('when test.xml is parsed', function(){
+function describeTest(filePath){
+    describe('when ' + filePath + ' is parsed', function(){
         var parsedBounds, parsedNodes;
 
         before(function(done){
@@ -22,7 +11,7 @@ describe('osmread', function(){
             parsedWays = [];
 
             osmread.parse({
-                filePath: 'test/test.xml',
+                filePath: filePath,
                 endDocument: function(){
                     done();
                 },
@@ -105,4 +94,20 @@ describe('osmread', function(){
             nodeRefs[1].should.be.equal('319408587');
         });
     });
+}
+
+describe('osmread', function(){
+    describe('when xml with invalid syntax is parsed', function(){
+        it('then an error should be raised', function(done){
+            osmread.parse({
+                filePath: 'test/invalid.xml',
+                error: function(msg){
+                    done();
+                }
+            });
+        });
+    });
+
+    describeTest('test/test.xml');
+    describeTest('test/test.pbf');
 });
