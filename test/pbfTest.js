@@ -7,7 +7,7 @@ describe('pbf read', function(){
         var parser;
         
         before(function(done){
-            osmread.parsePbf({
+            osmread.createPbfParser({
                 filePath: 'test/test.pbf',
                 callback: function(err, p){
                     if(err){

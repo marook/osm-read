@@ -42,7 +42,7 @@ osmread.parseXml({
 The following code allows to create a random access openstreetmap PBF
 file parser:
 
-osmread.parsePbf({
+osmread.createPbfParser({
     filePath: 'path/to/osm.pbf',
     callback: function(err, parser){
         if(err){
