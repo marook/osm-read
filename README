@@ -1,9 +1,10 @@
 osm-read - an openstreetmap XML and PBF parser for node.js
 
 1) Introduction
-2) Usage Example
-3) TODOs
-
+2) Simple Usage Example
+3) PBF random access parser
+4) TODOs
+5) Contact
 
 ------------------------------------------------------------------------
 Introduction
@@ -14,12 +15,12 @@ http://wiki.openstreetmap.org/wiki/PBF_Format
 
 
 ------------------------------------------------------------------------
-Usage Example
+Simple Usage Example
 
-The following code is used to parse openstreetmap XML files in a SAX
-parser like callback way.
+The following code is used to parse openstreetmap XML or PBF files in a
+SAX parser like callback way.
 
-osmread.parseXml({
+osmread.parse({
     filePath: 'path/to/osm.xml',
     endDocument: function(){
         console.log('document end');
@@ -38,6 +39,9 @@ osmread.parseXml({
     }
 });
 
+
+------------------------------------------------------------------------
+PBF random access parser
 
 The following code allows to create a random access openstreetmap PBF
 file parser:
@@ -69,3 +73,9 @@ Don't forget to close the parse after usage!
 TODOs
 
 * parse timestamps
+
+
+------------------------------------------------------------------------
+Contact
+
+* author: Markus Pielmeier <markus.pielmeier@gmail.com>
