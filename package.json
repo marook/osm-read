@@ -1,12 +1,12 @@
 {
     "author": "Markus Pielmeier <markus.pielmeier@gmail.com>",
     "name": "osm-read",
-    "description": "an openstreetmap XML data parser",
+    "description": "an openstreetmap XML and PBF data parser",
     "tags": [
         "osm",
         "openstreetmap"
     ],
-    "version": "0.1.1",
+    "version": "0.2.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/marook/osm-read.git"
@@ -28,5 +28,11 @@
     "devDependencies": {
         "mocha": "",
         "should": ""
-    }
+    },
+    "licenses": [
+        {
+            "type": "GPLv3",
+            "url": "http://www.gnu.org/licenses/gpl-3.0.html"
+        }
+    ]
 }
