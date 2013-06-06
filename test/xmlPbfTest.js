@@ -3,7 +3,7 @@ var osmread = require('../lib/main');
 
 function describeTest(filePath){
     describe('when ' + filePath + ' is parsed', function(){
-        var parsedBounds, parsedNodes;
+        var parsedBounds, parsedNodes, parsedWays;
 
         before(function(done){
             parsedBounds = [];
