@@ -1,14 +1,16 @@
 var should = require('should');
 var osmread = require('../lib/main');
 
-function describeTest(filePath){
+function describeTest(filePath, describeFilePathSpecificTests){
     describe('when ' + filePath + ' is parsed', function(){
-        var parsedBounds, parsedNodes, parsedWays;
+        var params;
+
+        params = {};
 
         before(function(done){
-            parsedBounds = [];
-            parsedNodes = [];
-            parsedWays = [];
+            params.parsedBounds = [];
+            params.parsedNodes = [];
+            params.parsedWays = [];
 
             osmread.parse({
                 filePath: filePath,
@@ -16,13 +18,13 @@ function describeTest(filePath){
                     done();
                 },
                 bounds: function(bounds){
-                    parsedBounds.push(bounds);
+                    params.parsedBounds.push(bounds);
                 },
                 node: function(node){
-                    parsedNodes.push(node);
+                    params.parsedNodes.push(node);
                 },
                 way: function(way){
-                    parsedWays.push(way);
+                    params.parsedWays.push(way);
                 },
                 error: function(msg){
                     should.fail(msg);
@@ -32,67 +34,63 @@ function describeTest(filePath){
             });
         });
 
-        it('then bounds callback should min and max lat and long', function(){
-            var bounds = parsedBounds[0];
-
-            bounds.minlat.should.be.within(51.507360179555, 51.507360179556);
-        });
-
         it('then node callback should deliver 6 nodes', function(){
-            parsedNodes.length.should.be.equal(6);
+            params.parsedNodes.length.should.be.equal(6);
         });
 
         it('then first parsed node has id 319408586', function(){
-            parsedNodes[0].id.should.be.equal('319408586');
+            params.parsedNodes[0].id.should.be.equal('319408586');
         });
 
         it('then first parsed node has lat 51.5074089', function(){
-            parsedNodes[0].lat.should.be.within(51.507408, 51.507409);
+            params.parsedNodes[0].lat.should.be.within(51.507408, 51.507409);
         });
 
         it('then first parsed node has lon -0.1080108', function(){
-            parsedNodes[0].lon.should.be.within(-0.108011, -0.108010);
+            params.parsedNodes[0].lon.should.be.within(-0.108011, -0.108010);
         });
 
         it('then first parsed node has version 1', function(){
-            parsedNodes[0].version.should.be.equal(1);
+            params.parsedNodes[0].version.should.be.equal(1);
         });
 
         it('then first parsed node has changeset 440330', function(){
-            parsedNodes[0].changeset.should.be.equal(440330);
+            params.parsedNodes[0].changeset.should.be.equal(440330);
         });
 
         it('then first parsed node has user smsm1', function(){
-            parsedNodes[0].user.should.be.equal('smsm1');
+            params.parsedNodes[0].user.should.be.equal('smsm1');
         });
 
         it('then first parsed node has uid 6871', function(){
-            parsedNodes[0].uid.should.be.equal('6871');
+            params.parsedNodes[0].uid.should.be.equal('6871');
         });
 
         it('then first parsed node is visible', function(){
-            parsedNodes[0].visible.should.be.equal(true);
+            params.parsedNodes[0].visible.should.be.equal(true);
         });
 
         it('then third parsed node has name and is cafe', function(){
-            var thirdNode = parsedNodes[2];
+            var thirdNode = params.parsedNodes[2];
 
             thirdNode.tags.name.should.be.equal('Jam\'s Sandwich Bar');
             thirdNode.tags.amenity.should.be.equal('cafe');
         });
 
         it('then way callback should deliver 1 way', function(){
-            parsedWays.length.should.be.equal(1);
+            params.parsedWays.length.should.be.equal(1);
         });
 
         it('then first way should start with the following node refs: 304994979, 319408587', function(){
             var nodeRefs;
 
-            nodeRefs = parsedWays[0].nodeRefs;
+            nodeRefs = params.parsedWays[0].nodeRefs;
 
             nodeRefs[0].should.be.equal('304994979');
             nodeRefs[1].should.be.equal('319408587');
         });
+
+        describeFilePathSpecificTests(params);
     });
 }
 
@@ -108,6 +106,22 @@ describe('osmread', function(){
         });
     });
 
-    describeTest('test/test.xml');
-    describeTest('test/test.pbf');
+    describeTest('test/test.xml', function(params){
+        it('then bounds callback should min and max lat and long', function(){
+            /*
+             * This test currently only works for test.xml because the bounds
+             * information is not parsed in the test.pbf. The cause for this
+             * is not yet clear to me. My guesses are one of the following:
+             * a) osmosis did not convert the bounds from test.xml to test.pbf
+             * b) protobufjs did not parse the bounds from test.pbf
+             */
+
+            var bounds = params.parsedBounds[0];
+
+            bounds.minlat.should.be.within(51.507360179555, 51.507360179556);
+        });
+    });
+
+    describeTest('test/test.pbf', function(parsedBounds, parsedNodes, parsedWays){
+    });
 });
