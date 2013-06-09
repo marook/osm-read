@@ -4,7 +4,8 @@ osm-read - an openstreetmap XML and PBF parser for node.js
 2) Simple Usage Example
 3) PBF random access parser
 4) TODOs
-5) Contact
+5) License
+6) Contact
 
 ------------------------------------------------------------------------
 Introduction
@@ -73,6 +74,12 @@ Don't forget to close the parse after usage!
 TODOs
 
 * parse timestamps
+
+
+------------------------------------------------------------------------
+License
+
+See file COPYING for details.
 
 
 ------------------------------------------------------------------------
