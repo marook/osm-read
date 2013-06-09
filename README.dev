@@ -1,6 +1,7 @@
 osm-read - developer guide
 
 1) Protocol Buffers
+2) Generating manyNodes.pbf test data
 
 
 ------------------------------------------------------------------------
@@ -10,3 +11,11 @@ The protocol buffer definitions for reading openstreetmap pbf files have
 been taken from the osmosis source code repository:
 
 https://github.com/openstreetmap/osmosis/tree/master/osmosis-osm-binary/src/main/protobuf
+
+
+------------------------------------------------------------------------
+Generating manyNodes.pbf test data
+
+The file test/manyNodes.pbf can be generated via the script
+test/genManyNodes.sh. genManyNodes.sh requires bash and osmosis
+installed.
