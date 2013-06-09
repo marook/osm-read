@@ -6,12 +6,10 @@ describe('when manyNodes.pbf is parsed', function(){
      * this test makes sure that PBF files with many nodes can be parsed.
      */
 
-    var params;
-
-    params = {};
+    var parsedNodes;
 
     before(function(done){
-        params.parsedNodes = [];
+        parsedNodes = [];
 
         osmread.parse({
             filePath: 'test/manyNodes.pbf',
@@ -19,7 +17,7 @@ describe('when manyNodes.pbf is parsed', function(){
                 done();
             },
             node: function(node){
-                params.parsedNodes.push(node);
+                parsedNodes.push(node);
             },
             error: function(msg){
                 should.fail(msg);
@@ -30,6 +28,6 @@ describe('when manyNodes.pbf is parsed', function(){
     });
     
     it('then 3000 nodes are available', function(){
-        params.parsedNodes.length.should.be.equal(3000);
+        parsedNodes.length.should.be.equal(3000);
     });
 });
