@@ -40,6 +40,29 @@ osmread.parse({
     }
 });
 
+------------------------------------------------------------------------
+Parse OSM XML from Url
+
+Parses OSM XML from an url.
+
+osmread.parseOsmXmlFromUrl({
+    url: 'http://overpass-api.de/api/interpreter?data=node(51.93315273540566%2C7.567176818847656%2C52.000418429293326%2C7.687854766845703)%5Bhighway%3Dtraffic_signals%5D%3Bout%3B',
+    endDocument: function(){
+        console.log('document end');
+    },
+    bounds: function(bounds){
+        console.log('bounds: ' + JSON.stringify(bounds));
+    },
+    node: function(node){
+        console.log('node: ' + JSON.stringify(node));
+    },
+    way: function(way){
+        console.log('way: ' + JSON.stringify(way));
+    },
+    error: function(msg){
+        console.log('error: ' + msg);
+    }
+});
 
 ------------------------------------------------------------------------
 PBF random access parser
