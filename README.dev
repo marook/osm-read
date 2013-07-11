@@ -2,6 +2,7 @@ osm-read - developer guide
 
 1) Protocol Buffers
 2) Generating manyNodes.pbf test data
+3) Release NPM Module
 
 
 ------------------------------------------------------------------------
@@ -19,3 +20,14 @@ Generating manyNodes.pbf test data
 The file test/manyNodes.pbf can be generated via the script
 test/genManyNodes.sh. genManyNodes.sh requires bash and osmosis
 installed.
+
+
+------------------------------------------------------------------------
+Release NPM Module
+
+Adjust the module version in package.json. The execute the following:
+
+$ git commit -a
+$ npm test
+$ npm publish
+$ git tag <released version>
