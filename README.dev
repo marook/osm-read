@@ -31,3 +31,4 @@ $ git commit -a
 $ npm test
 $ npm publish
 $ git tag <released version>
+$ git push
