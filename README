@@ -1,11 +1,13 @@
 osm-read - an openstreetmap XML and PBF parser for node.js
 
 1) Introduction
-2) Simple Usage Example
-3) PBF random access parser
-4) TODOs
-5) License
-6) Contact
+2) Usage Examples
+2.1) Simple Usage Example
+2.2) Parse OSM XML from URL Example
+2.3) PBF random access parser
+3) TODOs
+4) License
+5) Contact
 
 ------------------------------------------------------------------------
 Introduction
@@ -40,13 +42,15 @@ osmread.parse({
     }
 });
 
+
 ------------------------------------------------------------------------
-Parse OSM XML from Url
+Parse OSM XML from URL Example
 
-Parses OSM XML from an url.
+Currently you can only parse OSM data in XML from URLs. Here's an example:
 
-osmread.parseOsmXmlFromUrl({
+osmread.parse({
     url: 'http://overpass-api.de/api/interpreter?data=node(51.93315273540566%2C7.567176818847656%2C52.000418429293326%2C7.687854766845703)%5Bhighway%3Dtraffic_signals%5D%3Bout%3B',
+    format: 'xml',
     endDocument: function(){
         console.log('document end');
     },
@@ -63,6 +67,7 @@ osmread.parseOsmXmlFromUrl({
         console.log('error: ' + msg);
     }
 });
+
 
 ------------------------------------------------------------------------
 PBF random access parser

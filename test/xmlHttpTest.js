@@ -39,8 +39,9 @@ describe('when local http testserver is running', function(){
     }
 
     it('then parsing node from server parses node with id 319408586', function(done){
-        osmread.parseOsmXmlFromUrl({
+        osmread.parse({
             url: portToLocalServerUrl(localHttpServer.address().port),
+            format: 'xml',
             endDocument: function(){
                 parsedNodes[0].id.should.be.equal('319408586');
 
