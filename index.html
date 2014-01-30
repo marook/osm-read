@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>osm-read Browser eval</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <pre id="log"></pre>
+
+        <script src="node_modules/protobufjs/node_modules/bytebuffer/node_modules/long/Long.js"></script>
+        <script src="node_modules/protobufjs/node_modules/bytebuffer/ByteBuffer.js"></script>
+        <script src="node_modules/protobufjs/ProtoBuf.js"></script>
+
+        <script src="lib/browser/zlib.min.js"></script>
+        <script src="lib/browser/fs.js"></script>
+        <script src="lib/browser/buffer.js"></script>
+
+        <script src="lib/fileFormat.js"></script>
+        <script src="lib/osmFormat.js"></script>
+        <script src="lib/pbfParserBrowser.js"></script>
+        <script>
+
+        var logEle = document.getElementById("log");
+
+        function log(msg) {
+            logEle.textContent += msg + '\n';
+        }
+
+        osmread.parse({
+            filePath: 'test/test.pbf',
+            endDocument: function(){
+                log('document end');
+            },
+            bounds: function(bounds){
+                log('bounds: ' + JSON.stringify(bounds));
+            },
+            node: function(node){
+                log('node: ' + JSON.stringify(node));
+            },
+            way: function(way){
+                log('way: ' + JSON.stringify(way));
+            },
+            error: function(msg){
+                log('error: ' + msg);
+                throw msg;
+            }
+        });
+
+        </script>
+
+    </body>
+</html>
