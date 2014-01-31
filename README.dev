@@ -28,6 +28,7 @@ Release NPM Module
 Adjust the module version in package.json. The execute the following:
 
 $ git commit -a
+$ npm install
 $ npm test
 $ npm publish
 $ git tag <released version>
