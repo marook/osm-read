@@ -1,5 +1,5 @@
 {
-    "author": "Markus Pielmeier <markus.pielmeier@gmail.com>",
+    "author": "Markus Peröbner <markus.peroebner@gmail.com>",
     "name": "osm-read",
     "description": "an openstreetmap XML and PBF data parser",
     "tags": [
