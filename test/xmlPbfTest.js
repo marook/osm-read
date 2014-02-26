@@ -102,6 +102,17 @@ describe('osmread', function(){
         });
     });
 
+    describe('when parsed xml file not exists', function(){
+        it('then an error should be raised', function(done){
+            osmread.parse({
+                filePath: 'this/path/should/not/exist.xml',
+                error: function(msg){
+                    done();
+                }
+            });
+        });
+    });
+
     describeTest('test/test.xml', function(params){
         it('then bounds callback should min and max lat and long', function(){
             /*
