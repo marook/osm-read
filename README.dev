@@ -13,6 +13,9 @@ been taken from the osmosis source code repository:
 
 https://github.com/openstreetmap/osmosis/tree/master/osmosis-osm-binary/src/main/protobuf
 
+js modules for the proto files generated with (see scripts in package.json):
+
+$ npm run buildProto
 
 ------------------------------------------------------------------------
 Generating manyNodes.pbf test data

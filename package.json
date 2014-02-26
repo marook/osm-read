@@ -16,7 +16,8 @@
     },
     "main": "lib/main.js",
     "scripts": {
-        "test": "mocha test/*.js"
+        "test": "mocha test/*.js",
+        "buildProto": "node_modules/protobufjs/bin/proto2js lib/proto/fileformat.proto -commonjs > lib/proto/fileformat.js && node_modules/protobufjs/bin/proto2js lib/proto/osmformat.proto -commonjs > lib/proto/osmformat.js"
     },
     "engines": [
         "node >= 0.10.0"
