@@ -15,7 +15,24 @@
     <script src="../node_modules/zlibjs/bin/zlib.min.js"></script>
     <script src="../node_modules/protobufjs/node_modules/bytebuffer/ByteBuffer.min.js"></script>
 
+    <script src="../osm-read-pbf.js"></script>
+    <script>
+        function require(module) {
+            var fakeModules = {
+                "should": window.Should,
+                "../lib/main": {
+                    "createPbfParser": pbfParser.createParser
+                }
+            }
+            return fakeModules[module];
+        }
+    </script>
+
     <script src="zlibBrowserTest.js"></script>
+    <script src="pbfTest.js"></script>
+
+    <!-- path to test.pbf is relative to project root because of npm test -->
+    <base href="../">
     <script>
       mocha.run();
     </script>

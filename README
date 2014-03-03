@@ -42,6 +42,36 @@ osmread.parse({
     }
 });
 
+------------------------------------------------------------------------
+Parse PBF in the browser
+
+Build or update the browser bundle 'osm-read-pbf.js' with browserify:
+$ npm run browserify
+
+To install browserify (http://browserify.org/):
+$ npm install -g browserify
+
+Example, see also example/pbf.html:
+
+    <script src="../osm-read-pbf.js"></script>
+    <script>
+        pbfParser.parse({
+            filePath: 'test.pbf',
+            endDocument: function(){
+                console.log('document end');
+            },
+            node: function(node){
+                console.log('node: ' + JSON.stringify(node));
+            },
+            way: function(way){
+                console.log('way: ' + JSON.stringify(way));
+            },
+            error: function(msg){
+                console.error('error: ' + msg);
+                throw msg;
+            }
+        });
+    </script>
 
 ------------------------------------------------------------------------
 Parse OSM XML from URL Example

@@ -17,7 +17,8 @@
     "main": "lib/main.js",
     "scripts": {
         "test": "mocha test/*.js",
-        "buildProto": "node_modules/protobufjs/bin/proto2js lib/proto/fileformat.proto -commonjs > lib/proto/fileformat.js && node_modules/protobufjs/bin/proto2js lib/proto/osmformat.proto -commonjs > lib/proto/osmformat.js"
+        "buildProto": "node_modules/protobufjs/bin/proto2js lib/proto/fileformat.proto -commonjs > lib/proto/fileformat.js && node_modules/protobufjs/bin/proto2js lib/proto/osmformat.proto -commonjs > lib/proto/osmformat.js",
+        "browserify": "browserify ./lib/pbfParser.js --bare -s=pbfParser -o osm-read-pbf.js"
     },
     "engines": [
         "node >= 0.10.0"
