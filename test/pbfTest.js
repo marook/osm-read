@@ -125,12 +125,28 @@ describe('pbf read', function(){
                     pg.nodesView.get(0).id.should.be.equal('319408586');
                 });
 
+                it('then second node has latitude 51.5074343', function(){
+                    pg.nodesView.get(1).lat.should.be.equal(51.5074343);
+                });
+
+                it('then second node has longitude -0.1081264', function(){
+                    pg.nodesView.get(1).lon.should.be.equal(-0.1081264);
+                });
+
                 it('then second node has id 319408587', function(){
                     pg.nodesView.get(1).id.should.be.equal('319408587');
                 });
 
                 it('then third node has tag amenity=cafe', function(){
                     pg.nodesView.get(2).tags.amenity.should.be.equal('cafe');
+                });
+
+                it('then last node has latitude 51.507406', function(){
+                    pg.nodesView.get(pg.nodesView.length - 1).lat.should.be.equal(51.507406);
+                });
+
+                it('then last node has longitude -0.1083348', function(){
+                    pg.nodesView.get(pg.nodesView.length - 1).lon.should.be.equal(-0.1083348);
                 });
 
                 it('then last node\'s tags should be defined', function(){
