@@ -180,6 +180,10 @@ describe('pbf read', function(){
                         way.tags.highway.should.be.equal('service');
                     });
 
+                    it('then way has tag name=üßé€', function(){
+                        way.tags.name.should.be.equal('üßé€');
+                    });
+
                     it('then first way node ref has id 304994979', function(){
                         way.nodeRefs[0].should.be.equal('304994979');
                     });
