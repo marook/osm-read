@@ -1,4 +1,4 @@
-osm-read - an openstreetmap XML and PBF parser for node.js
+osm-read - an openstreetmap XML and PBF parser for node.js and the browser
 
 1) Introduction
 2) Usage Examples
