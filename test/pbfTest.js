@@ -180,6 +180,26 @@ describe('pbf read', function(){
                         way.id.should.be.equal('27776903');
                     });
 
+                    it('then way has version 3', function(){
+                        way.version.should.be.equal(3);
+                    });
+
+                    it('then way has timestamp 1243777155000 (2009-05-31T13:39:15Z)', function(){
+                        way.timestamp.should.be.equal(1243777155000);
+                    });
+
+                    it('then way has changeset 1368552', function(){
+                        way.changeset.should.be.equal(1368552);
+                    });
+
+                    it('then way has user Matt', function(){
+                        way.user.should.be.equal('Matt');
+                    });
+
+                    it('then way has uid 70', function(){
+                        way.uid.should.be.equal('70');
+                    });
+
                     it('then way has tag highway=service', function(){
                         way.tags.highway.should.be.equal('service');
                     });
