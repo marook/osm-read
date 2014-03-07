@@ -20,5 +20,6 @@
     <nd ref="304994981"/>
     <tag k="access" v="private"/>
     <tag k="highway" v="service"/>
+    <tag k="name" v="üßé€"/>
   </way>
 </osm>
