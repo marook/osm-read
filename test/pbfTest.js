@@ -125,6 +125,10 @@ describe('pbf read', function(){
                     pg.nodesView.get(0).id.should.be.equal('319408586');
                 });
 
+                it('then first node has timestamp 1229476722000 (2008-12-17T01:18:42Z)', function(){
+                    pg.nodesView.get(0).timestamp.should.be.equal(1229476722000);
+                });
+
                 it('then second node has latitude 51.5074343', function(){
                     pg.nodesView.get(1).lat.should.be.equal(51.5074343);
                 });
