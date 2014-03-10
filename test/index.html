@@ -21,7 +21,8 @@
             var fakeModules = {
                 "should": window.Should,
                 "../lib/main": {
-                    "createPbfParser": pbfParser.createParser
+                    "createPbfParser": pbfParser.createParser,
+                    "parse": pbfParser.parse
                 }
             }
             return fakeModules[module];
@@ -29,6 +30,7 @@
     </script>
 
     <script src="zlibBrowserTest.js"></script>
+    <script src="manyNodesTest.js"></script>
     <script src="pbfTest.js"></script>
 
     <!-- path to test.pbf is relative to project root because of npm test -->
