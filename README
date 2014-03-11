@@ -73,6 +73,15 @@ Example, see also example/pbf.html:
         });
     </script>
 
+As an alternative to passing an URL in "filePath", the option "buffer" can be 
+used to pass an already loaded ArrayBuffer object:
+
+        var buf = ... // e.g. xhr.response
+
+        pbfParser.parse({
+            buffer: buf,
+        ...
+
 ------------------------------------------------------------------------
 Parse OSM XML from URL Example
 
