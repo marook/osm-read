@@ -147,6 +147,8 @@ TODOs
 XML parser:
 * parse timestamps
 
+PBF parser:
+* parse relations (https://github.com/marook/osm-read/issues/16)
 
 ------------------------------------------------------------------------
 License
