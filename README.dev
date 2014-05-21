@@ -37,4 +37,5 @@ $ npm run browserify
 $ xdg-open test/index.html
 $ npm publish
 $ git tag <released version>
+$ git push
 $ git push --tags
