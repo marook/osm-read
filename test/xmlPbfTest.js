@@ -161,6 +161,23 @@ describe('osmread', function(){
             relation.version.should.be.equal(28);
             relation.changeset.should.be.equal(6947637);
         });
+
+        it('then first relation\'s tags are parsed', function(){
+            /*
+             * Currently relations are only parsed in XML files. That's
+             * why this test is not part of the format independent test
+             * suite.
+             */
+
+            var relation;
+
+            relation = params.parsedRelations[0];
+
+            relation.tags.network.should.be.equal('VVW');
+            relation.tags.ref.should.be.equal('123');
+            relation.tags.route.should.be.equal('bus');
+            relation.tags.type.should.be.equal('route');
+        });
     });
 
     describeTest('test/test.pbf', function(parsedBounds, parsedNodes, parsedWays){
