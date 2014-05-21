@@ -138,7 +138,7 @@ osmread.createPbfParser({
     });
 });
 
-Don't forget to close the parse after usage!
+Don't forget to close the parser after usage!
 
 
 ------------------------------------------------------------------------
@@ -148,7 +148,7 @@ XML parser:
 * parse timestamps
 
 PBF parser:
-* parse relations (https://github.com/marook/osm-read/issues/16)
+* parse relations
 
 ------------------------------------------------------------------------
 License
