@@ -11,6 +11,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
             params.parsedBounds = [];
             params.parsedNodes = [];
             params.parsedWays = [];
+            params.parsedRelations = [];
 
             osmread.parse({
                 filePath: filePath,
@@ -25,6 +26,9 @@ function describeTest(filePath, describeFilePathSpecificTests){
                 },
                 way: function(way){
                     params.parsedWays.push(way);
+                },
+                relation: function(relation){
+                    params.parsedRelations.push(relation);
                 },
                 error: function(msg){
                     should.fail(msg);
@@ -138,6 +142,24 @@ describe('osmread', function(){
              */
             
             params.parsedNodes[0].visible.should.be.equal(true);
+        });
+
+        it('then first relation\'s attributes are parsed', function(){
+            /*
+             * Currently relations are only parsed in XML files. That's
+             * why this test is not part of the format independent test
+             * suite.
+             */
+
+            var relation;
+
+            relation = params.parsedRelations[0];
+
+            relation.visible.should.be.equal(true);
+            relation.id.should.be.equal('56688');
+            relation.user.should.be.equal('kmvar');
+            relation.version.should.be.equal(28);
+            relation.changeset.should.be.equal(6947637);
         });
     });
 

@@ -22,4 +22,12 @@
     <tag k="highway" v="service"/>
     <tag k="name" v="üßé€"/>
   </way>
+  <relation id="56688" user="kmvar" uid="56190" visible="true" version="28" changeset="6947637" timestamp="2011-01-12T14:23:49Z">
+    <member type="node" ref="319408586" role="" />
+    <member type="way" ref="27776903" role="" />
+    <tag k="network" v="VVW"/>
+    <tag k="ref" v="123"/>
+    <tag k="route" v="bus"/>
+    <tag k="type" v="route"/>
+  </relation>
 </osm>
