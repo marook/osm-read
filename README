@@ -135,7 +135,7 @@ osmread.createPbfParser({
                 }
             });
         });
-    });
+    }
 });
 
 Don't forget to close the parser after usage!
