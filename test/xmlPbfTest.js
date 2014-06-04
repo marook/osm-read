@@ -90,6 +90,46 @@ function describeTest(filePath, describeFilePathSpecificTests){
             nodeRefs[1].should.be.equal('319408587');
         });
 
+        it('then first relation\'s attributes are parsed', function(){
+            var relation;
+
+            relation = params.parsedRelations[0];
+
+            relation.id.should.be.equal('56688');
+            relation.user.should.be.equal('kmvar');
+            relation.version.should.be.equal(28);
+            relation.changeset.should.be.equal(6947637);
+        });
+
+        it('then first relation\'s tags are parsed', function(){
+            var relation;
+
+            relation = params.parsedRelations[0];
+
+            relation.tags.network.should.be.equal('VVW');
+            relation.tags.ref.should.be.equal('123');
+            relation.tags.route.should.be.equal('bus');
+            relation.tags.type.should.be.equal('route');
+        });
+
+        it('then first relation\'s member nodes are parsed', function(){
+            var nodeMember;
+
+            nodeMember = params.parsedRelations[0].members.nodes[0];
+
+            nodeMember.ref.should.be.equal('319408586');
+            nodeMember.role.should.be.equal('');
+        });
+
+        it('then first relation\'s member ways are parsed', function(){
+            var nodeMember;
+
+            nodeMember = params.parsedRelations[0].members.ways[0];
+
+            nodeMember.ref.should.be.equal('27776903');
+            nodeMember.role.should.be.equal('');
+        });
+
         describeFilePathSpecificTests(params);
     });
 }
@@ -144,69 +184,16 @@ describe('osmread', function(){
             params.parsedNodes[0].visible.should.be.equal(true);
         });
 
-        it('then first relation\'s attributes are parsed', function(){
+        it('then first parsed relation is visible', function(){
             /*
-             * Currently relations are only parsed in XML files. That's
-             * why this test is not part of the format independent test
-             * suite.
+             * This test currently only works for test.xml because the visible
+             * information is not parsed in the test.pbf. The cause for this
+             * is not yet clear to me. My guesses are one of the following:
+             * a) osmosis did not convert the visible flags from test.xml to test.pbf
+             * b) protobufjs did not parse the visible flags from test.pbf
              */
 
-            var relation;
-
-            relation = params.parsedRelations[0];
-
-            relation.visible.should.be.equal(true);
-            relation.id.should.be.equal('56688');
-            relation.user.should.be.equal('kmvar');
-            relation.version.should.be.equal(28);
-            relation.changeset.should.be.equal(6947637);
-        });
-
-        it('then first relation\'s tags are parsed', function(){
-            /*
-             * Currently relations are only parsed in XML files. That's
-             * why this test is not part of the format independent test
-             * suite.
-             */
-
-            var relation;
-
-            relation = params.parsedRelations[0];
-
-            relation.tags.network.should.be.equal('VVW');
-            relation.tags.ref.should.be.equal('123');
-            relation.tags.route.should.be.equal('bus');
-            relation.tags.type.should.be.equal('route');
-        });
-
-        it('then first relation\'s member nodes are parsed', function(){
-            /*
-             * Currently relations are only parsed in XML files. That's
-             * why this test is not part of the format independent test
-             * suite.
-             */
-
-            var nodeMember;
-
-            nodeMember = params.parsedRelations[0].members.nodes[0];
-
-            nodeMember.ref.should.be.equal('319408586');
-            nodeMember.role.should.be.equal('');
-        });
-
-        it('then first relation\'s member ways are parsed', function(){
-            /*
-             * Currently relations are only parsed in XML files. That's
-             * why this test is not part of the format independent test
-             * suite.
-             */
-
-            var nodeMember;
-
-            nodeMember = params.parsedRelations[0].members.ways[0];
-
-            nodeMember.ref.should.be.equal('27776903');
-            nodeMember.role.should.be.equal('');
+            params.parsedRelations[0].visible.should.be.equal(true);
         });
     });
 

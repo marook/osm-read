@@ -86,16 +86,16 @@ describe('pbf read', function(){
                 });
             });
 
-            it('then first stringtable entry is smsm1', function(){
-                osmData.stringtable.getEntry(1).should.be.equal('smsm1');
+            it('then second stringtable entry is smsm1', function(){
+                osmData.stringtable.getEntry(2).should.be.equal('smsm1');
             });
 
             it('then granulatiry is 100', function(){
                 osmData.granularity.should.be.equal(100);
             });
 
-            it('then two primitivegroups exist', function(){
-                osmData.primitivegroup.length.should.be.equal(2);
+            it('then three primitivegroups exist', function(){
+                osmData.primitivegroup.length.should.be.equal(3);
             });
 
             it('then second primitivegroup has 0 nodes', function(){
