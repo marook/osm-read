@@ -112,20 +112,22 @@ function describeTest(filePath, describeFilePathSpecificTests){
             relation.tags.type.should.be.equal('route');
         });
 
-        it('then first relation\'s member nodes are parsed', function(){
+        it('then first relation member is a node', function(){
             var nodeMember;
 
-            nodeMember = params.parsedRelations[0].members.nodes[0];
+            nodeMember = params.parsedRelations[0].members[0];
 
+            nodeMember.type.should.be.equal('node');
             nodeMember.ref.should.be.equal('319408586');
             nodeMember.role.should.be.equal('');
         });
 
-        it('then first relation\'s member ways are parsed', function(){
+        it('then second relation member is a way', function(){
             var nodeMember;
 
-            nodeMember = params.parsedRelations[0].members.ways[0];
+            nodeMember = params.parsedRelations[0].members[1];
 
+            nodeMember.type.should.be.equal('way');
             nodeMember.ref.should.be.equal('27776903');
             nodeMember.role.should.be.equal('');
         });
