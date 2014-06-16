@@ -5,9 +5,10 @@ osm-read - an openstreetmap XML and PBF parser for node.js and the browser
 2.1) Simple Usage Example
 2.2) Parse OSM XML from URL Example
 2.3) PBF random access parser
-3) TODOs
-4) License
-5) Contact
+3) Version Upgrade Guide
+4) TODOs
+5) License
+6) Contact
 
 ------------------------------------------------------------------------
 Introduction
@@ -148,6 +149,15 @@ osmread.createPbfParser({
 });
 
 Don't forget to close the parser after usage!
+
+
+------------------------------------------------------------------------
+Version Upgrade Guide
+
+Sometimes APIs change... they break your code but things get easier for
+the rest of us. I'm sorry if a version upgrade gives you some extra
+hours. To makes things a little less painfull you can find migration
+instructions in the file ChangeLog.
 
 
 ------------------------------------------------------------------------
