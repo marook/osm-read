@@ -37,6 +37,9 @@ osmread.parse({
     way: function(way){
         console.log('way: ' + JSON.stringify(way));
     },
+    relation: function(relation){
+        console.log('relation: ' + JSON.stringify(relation));
+    },
     error: function(msg){
         console.log('error: ' + msg);
     }
@@ -65,6 +68,9 @@ Example, see also example/pbf.html:
             },
             way: function(way){
                 console.log('way: ' + JSON.stringify(way));
+            },
+            relation: function(relation){
+                console.log('relation: ' + JSON.stringify(relation));
             },
             error: function(msg){
                 console.error('error: ' + msg);
@@ -101,6 +107,9 @@ osmread.parse({
     },
     way: function(way){
         console.log('way: ' + JSON.stringify(way));
+    },
+    relation: function(relation){
+        console.log('relation: ' + JSON.stringify(relation));
     },
     error: function(msg){
         console.log('error: ' + msg);
@@ -146,9 +155,6 @@ TODOs
 
 XML parser:
 * parse timestamps
-
-PBF parser:
-* parse relations
 
 ------------------------------------------------------------------------
 License
