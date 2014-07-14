@@ -1,8 +1,29 @@
 osm-read - developer guide
 
-1) Protocol Buffers
-2) Generating manyNodes.pbf test data
-3) Release NPM Module
+1) Running the tests
+2) Protocol Buffers
+3) Generating manyNodes.pbf test data
+4) Release NPM Module
+
+
+------------------------------------------------------------------------
+Running the tests
+
+Currently there is a set of mocha (https://github.com/visionmedia/mocha)
+based unit and integration tests. The tests can be executed in a node.js
+context and in the browser.
+
+To run the tests within node.js type:
+$ npm test
+
+To run the tests within the browser you first have to install browserify:
+$ npm install browserify -g
+
+Then run browserify in order to generate the latest osm-read-pbf.js:
+$ npm run browserify
+
+To finally execute the tests open test/index.html in your favourite
+browser.
 
 
 ------------------------------------------------------------------------
