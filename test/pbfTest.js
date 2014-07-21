@@ -219,6 +219,30 @@ describe('pbf read', function(){
                 });
             });
 
+            describe('and third primitivegroup exists', function(){
+                var pg;
+
+                before(function(){
+                    pg = osmData.primitivegroup[2];
+                });
+
+                it('then pg has one relation', function(){
+                    pg.relationsView.length.should.be.equal(1);
+                });
+
+                describe('and first relation exists', function(){
+                    var relation;
+
+                    before(function(){
+                        relation = pg.relationsView.get(0);
+                    });
+
+                    it('then relation has id 56688', function(){
+                        relation.id.should.be.equal('56688');
+                    });
+                });
+            });
+
         });
 
     });
