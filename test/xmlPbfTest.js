@@ -134,6 +134,23 @@ function describeTest(filePath, describeFilePathSpecificTests){
 
         describeFilePathSpecificTests(params);
     });
+
+    describe('when ' + filePath + ' is parsed', function(){
+        it('then artifact callbacks are optional', function(done){
+            osmread.parse({
+                filePath: filePath,
+                endDocument: function(){
+                    done();
+                },
+                error: function(msg){
+                    should.fail(msg);
+
+                    done();
+                }
+            });
+        });
+
+    });
 }
 
 describe('osmread', function(){
