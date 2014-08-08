@@ -17,6 +17,10 @@ osm-read parses openstreetmap XML and PBF files as described in
 http://wiki.openstreetmap.org/wiki/OSM_XML and
 http://wiki.openstreetmap.org/wiki/PBF_Format
 
+------------------------------------------------------------------------
+Continuous Integration
+
+[![Build Status](https://travis-ci.org/marook/osm-read.png?branch=master)](https://travis-ci.org/marook/osm-read)
 
 ------------------------------------------------------------------------
 Simple Usage Example
