@@ -134,6 +134,44 @@ function describeTest(filePath, describeFilePathSpecificTests){
 
         describeFilePathSpecificTests(params);
     });
+
+    describe('when ' + filePath + ' is parsed and paused after first node', function(){
+        var params, parser;
+
+        params = {};
+
+        beforeEach(function(done){
+            var firstNodeCallback = true;
+
+            params.parsedNodes = [];
+
+            parser = osmread.parse({
+                filePath: filePath,
+                node: function(node){
+                    params.parsedNodes.push(node);
+
+                    parser.pause();
+
+                    if(firstNodeCallback){
+                        firstNodeCallback = false;
+
+                        done();
+                    }
+                },
+                error: function(msg){
+                    should.fail(msg);
+                }
+            });
+        });
+
+        it('then the parser does no parse any further nodes', function(done){
+            setTimeout(function(){
+                params.parsedNodes.length.should.be.equal(1);
+
+                done();
+            }, 1000);
+        });
+    });
 }
 
 describe('osmread', function(){
