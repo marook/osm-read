@@ -185,12 +185,12 @@ XML parser:
 - parse timestamps
 
 ------------------------------------------------------------------------
-License
+#### License
 
 See file COPYING for details.
 
 
 ------------------------------------------------------------------------
-Contact
+#### Contact
 
-* author: Markus Peröbner <markus.peroebner@gmail.com>
+author: Markus Peröbner <markus.peroebner@gmail.com>
