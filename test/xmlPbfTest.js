@@ -152,9 +152,10 @@ function describeTest(filePath, describeFilePathSpecificTests){
     });
 
     describe('when ' + filePath + ' is parsed and paused after first node', function(){
-        var params, parser;
+        var params, parser, documentEndReached;
 
         params = {};
+        documentEndReached = false;
 
         beforeEach(function(done){
             var firstNodeCallback = true;
@@ -164,6 +165,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
             parser = osmread.parse({
                 filePath: filePath,
                 endDocument: function(){
+                    documentEndReached = true;
                 },
                 node: function(node){
                     params.parsedNodes.push(node);
@@ -182,7 +184,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
             });
         });
 
-        it('then the parser does not process the next junk of work', function(){
+        it('then the parser does not process the next junk of work', function(done){
             /*
              * this test is a little bit difficult because right now the
              * xml parser can stop after each element but the pbf parser
@@ -191,11 +193,25 @@ function describeTest(filePath, describeFilePathSpecificTests){
              * => different behavior for xml and pbf :(
              */
 
-            /* TODO setTimeout(function(){
-               // TODO enable for XML parser params.parsedNodes.length.should.be.equal(1);
+            setTimeout(function(){
+                documentEndReached.should.equal(false);
+
+                // TODO enable for XML parser params.parsedNodes.length.should.be.equal(1);
 
                 done();
-            }, 1000); */
+            }, 800);
+        });
+
+        it('then the parser does proceed to end after resume', function(done){
+            setTimeout(function(){
+                parser.resume();
+
+                setTimeout(function(){
+                    documentEndReached.should.equal(true);
+
+                    done();
+                }, 800);
+            }, 800);
         });
     });
 }
