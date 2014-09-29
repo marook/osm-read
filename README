@@ -24,7 +24,7 @@ Simple Usage Example
 The following code is used to parse openstreetmap XML or PBF files in a
 SAX parser like callback way.
 
-osmread.parse({
+var parser = osmread.parse({
     filePath: 'path/to/osm.xml',
     endDocument: function(){
         console.log('document end');
@@ -45,6 +45,13 @@ osmread.parse({
         console.log('error: ' + msg);
     }
 });
+
+// you can pause the parser
+parser.pause();
+
+// and resume it again
+parser.resume();
+
 
 ------------------------------------------------------------------------
 Parse PBF in the browser
