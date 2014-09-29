@@ -152,12 +152,11 @@ function describeTest(filePath, describeFilePathSpecificTests){
     });
 
     describe('when ' + filePath + ' is parsed and paused after first node', function(){
-        var params, parser, documentEndReached;
+        it('then the parser does not process the next junk of work', function(done){
+            var params, parser;
 
-        params = {};
-        documentEndReached = false;
+            params = {};
 
-        beforeEach(function(done){
             var firstNodeCallback = true;
 
             params.parsedNodes = [];
@@ -165,7 +164,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
             parser = osmread.parse({
                 filePath: filePath,
                 endDocument: function(){
-                    documentEndReached = true;
+                    should.fail('Paused parser should not reach end of document');
                 },
                 node: function(node){
                     params.parsedNodes.push(node);
@@ -174,17 +173,13 @@ function describeTest(filePath, describeFilePathSpecificTests){
 
                     if(firstNodeCallback){
                         firstNodeCallback = false;
-
-                        done();
                     }
                 },
                 error: function(msg){
                     should.fail(msg);
                 }
             });
-        });
 
-        it('then the parser does not process the next junk of work', function(done){
             /*
              * this test is a little bit difficult because right now the
              * xml parser can stop after each element but the pbf parser
@@ -192,9 +187,8 @@ function describeTest(filePath, describeFilePathSpecificTests){
              *
              * => different behavior for xml and pbf :(
              */
-
             setTimeout(function(){
-                documentEndReached.should.equal(false);
+                // give parse a little bit of time to reach endDocument (and fail)
 
                 // TODO enable for XML parser params.parsedNodes.length.should.be.equal(1);
 
@@ -203,15 +197,36 @@ function describeTest(filePath, describeFilePathSpecificTests){
         });
 
         it('then the parser does proceed to end after resume', function(done){
-            setTimeout(function(){
-                parser.resume();
+            var params, parser;
 
-                setTimeout(function(){
-                    documentEndReached.should.equal(true);
+            params = {};
 
+            var firstNodeCallback = true;
+
+            params.parsedNodes = [];
+
+            parser = osmread.parse({
+                filePath: filePath,
+                endDocument: function(){
                     done();
-                }, 800);
-            }, 800);
+                },
+                node: function(node){
+                    params.parsedNodes.push(node);
+
+                    parser.pause();
+
+                    if(firstNodeCallback){
+                        firstNodeCallback = false;
+                    }
+
+                    setTimeout(function(){
+                        parser.resume();
+                    }, 0);
+                },
+                error: function(msg){
+                    should.fail(msg);
+                }
+            });
         });
     });
 }
