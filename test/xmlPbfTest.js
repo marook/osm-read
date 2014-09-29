@@ -180,7 +180,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
             });
         });
 
-        it('then the parser does no parse any further nodes', function(done){
+        it('then the parser does not parse any further nodes', function(done){
             setTimeout(function(){
                 params.parsedNodes.length.should.be.equal(1);
 
