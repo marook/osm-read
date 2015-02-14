@@ -96,6 +96,23 @@ used to pass an already loaded ArrayBuffer object:
             buffer: buf,
         ...
 
+A third alternative is to let the user choose a local file using the 
+HTML5 File API, passing the file object as "file" option:
+
+    <input type="file" id="file" accept=".pbf">
+    <script>
+        document.getElementById("file").addEventListener("change", parse, false);
+
+        function parse(evt) {
+            var file = evt.target.files[0];
+
+            pbfParser.parse({
+                file: file,
+            ...
+
+See also example/file.html
+
+
 ------------------------------------------------------------------------
 Parse OSM XML from URL Example
 
