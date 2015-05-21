@@ -56,11 +56,8 @@ parser.resume();
 ------------------------------------------------------------------------
 Parse PBF in the browser
 
-Build or update the browser bundle 'osm-read-pbf.js' with browserify:
-$ npm run browserify
-
-To install browserify (http://browserify.org/):
-$ npm install -g browserify
+The browser bundle 'osm-read-pbf.js' provides a global variable 'pbfParser' 
+with a 'parse' method.
 
 Example, see also example/pbf.html:
 
@@ -112,6 +109,14 @@ HTML5 File API, passing the file object as "file" option:
 
 See also example/file.html
 
+-----
+Build
+
+Build or update the browser bundle 'osm-read-pbf.js' with browserify:
+$ npm run browserify
+
+To install browserify (http://browserify.org/):
+$ npm install -g browserify
 
 ------------------------------------------------------------------------
 Parse OSM XML from URL Example
