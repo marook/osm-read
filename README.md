@@ -1,29 +1,34 @@
-osm-read - an openstreetmap XML and PBF parser for node.js and the browser
+#### osm-read - an openstreetmap XML and PBF parser for node.js and the browser
 
-1) Introduction
-2) Usage Examples
-2.1) Simple Usage Example
-2.2) Parse OSM XML from URL Example
-2.3) PBF random access parser
-3) Version Upgrade Guide
-4) TODOs
-5) License
-6) Contact
+1. Introduction
+2. Usage Examples
+    1. Simple Usage Example
+    2. Parse OSM XML from URL Example
+    3. PBF random access parser
+3. Version Upgrade Guide
+4. TODOs
+5. License
+6. Contact
 
 ------------------------------------------------------------------------
-Introduction
+#### Introduction
 
 osm-read parses openstreetmap XML and PBF files as described in
-http://wiki.openstreetmap.org/wiki/OSM_XML and
-http://wiki.openstreetmap.org/wiki/PBF_Format
-
+[http://wiki.openstreetmap.org/wiki/OSM_XML](http://wiki.openstreetmap.org/wiki/OSM_XML) and
+[http://wiki.openstreetmap.org/wiki/PBF_Format](http://wiki.openstreetmap.org/wiki/PBF_Format)
 
 ------------------------------------------------------------------------
-Simple Usage Example
+#### Continuous Integration
+
+[![Build Status](https://travis-ci.org/marook/osm-read.png?branch=master)](https://travis-ci.org/marook/osm-read)
+
+------------------------------------------------------------------------
+#### Simple Usage Example
 
 The following code is used to parse openstreetmap XML or PBF files in a
 SAX parser like callback way.
 
+```javascript
 var parser = osmread.parse({
     filePath: 'path/to/osm.xml',
     endDocument: function(){
@@ -51,47 +56,62 @@ parser.pause();
 
 // and resume it again
 parser.resume();
+```
 
 
 ------------------------------------------------------------------------
-Parse PBF in the browser
+#### Parse PBF in the browser
 
 The browser bundle 'osm-read-pbf.js' provides a global variable 'pbfParser' 
 with a 'parse' method.
 
 Example, see also example/pbf.html:
 
-    <script src="../osm-read-pbf.js"></script>
-    <script>
-        pbfParser.parse({
-            filePath: 'test.pbf',
-            endDocument: function(){
-                console.log('document end');
-            },
-            node: function(node){
-                console.log('node: ' + JSON.stringify(node));
-            },
-            way: function(way){
-                console.log('way: ' + JSON.stringify(way));
-            },
-            relation: function(relation){
-                console.log('relation: ' + JSON.stringify(relation));
-            },
-            error: function(msg){
-                console.error('error: ' + msg);
-                throw msg;
-            }
-        });
-    </script>
+```html
+<script src="../osm-read-pbf.js"></script>
+<script>
+    pbfParser.parse({
+        filePath: 'test.pbf',
+        endDocument: function(){
+            console.log('document end');
+        },
+        node: function(node){
+            console.log('node: ' + JSON.stringify(node));
+        },
+        way: function(way){
+            console.log('way: ' + JSON.stringify(way));
+        },
+        relation: function(relation){
+            console.log('relation: ' + JSON.stringify(relation));
+        },
+        error: function(msg){
+            console.error('error: ' + msg);
+            throw msg;
+        }
+    });
+</script>
+```
+
+Build or update the browser bundle `osm-read-pbf.js` with browserify:
+```bash
+$ npm run browserify
+```
+
+To install browserify (http://browserify.org/):
+```bash
+$ npm install -g browserify
+```
 
 As an alternative to passing an URL in "filePath", the option "buffer" can be 
 used to pass an already loaded ArrayBuffer object:
 
-        var buf = ... // e.g. xhr.response
+```javascript
+var buf = ... // e.g. xhr.response
 
-        pbfParser.parse({
-            buffer: buf,
-        ...
+pbfParser.parse({
+    buffer: buf,
+...
+```
 
 A third alternative is to let the user choose a local file using the 
 HTML5 File API, passing the file object as "file" option:
@@ -119,10 +139,11 @@ To install browserify (http://browserify.org/):
 $ npm install -g browserify
 
 ------------------------------------------------------------------------
-Parse OSM XML from URL Example
+#### Parse OSM XML from URL Example
 
 Currently you can only parse OSM data in XML from URLs. Here's an example:
 
+```javascript
 osmread.parse({
     url: 'http://overpass-api.de/api/interpreter?data=node(51.93315273540566%2C7.567176818847656%2C52.000418429293326%2C7.687854766845703)%5Bhighway%3Dtraffic_signals%5D%3Bout%3B',
     format: 'xml',
@@ -145,14 +166,15 @@ osmread.parse({
         console.log('error: ' + msg);
     }
 });
-
+```
 
 ------------------------------------------------------------------------
-PBF random access parser
+#### PBF random access parser
 
 The following code allows to create a random access openstreetmap PBF
 file parser:
 
+```javascript
 osmread.createPbfParser({
     filePath: 'path/to/osm.pbf',
     callback: function(err, parser){
@@ -176,12 +198,13 @@ osmread.createPbfParser({
         });
     }
 });
+```
 
-Don't forget to close the parser after usage!
+***Don't forget to close the parser after usage!***
 
 
 ------------------------------------------------------------------------
-Version Upgrade Guide
+#### Version Upgrade Guide
 
 Sometimes APIs change... they break your code but things get easier for
 the rest of us. I'm sorry if a version upgrade gives you some extra
@@ -190,18 +213,19 @@ instructions in the file ChangeLog.
 
 
 ------------------------------------------------------------------------
-TODOs
+#### TODOs
 
-XML parser:
-* parse timestamps
+XML parser:  
+
+- parse timestamps
 
 ------------------------------------------------------------------------
-License
+#### License
 
 See file COPYING for details.
 
 
 ------------------------------------------------------------------------
-Contact
+#### Contact
 
-* author: Markus Peröbner <markus.peroebner@gmail.com>
+author: Markus Peröbner <markus.peroebner@gmail.com>
