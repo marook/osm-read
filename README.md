@@ -92,16 +92,6 @@ Example, see also example/pbf.html:
 </script>
 ```
 
-Build or update the browser bundle `osm-read-pbf.js` with browserify:
-```bash
-$ npm run browserify
-```
-
-To install browserify (http://browserify.org/):
-```bash
-$ npm install -g browserify
-```
-
 As an alternative to passing an URL in "filePath", the option "buffer" can be 
 used to pass an already loaded ArrayBuffer object:
 
@@ -129,14 +119,18 @@ HTML5 File API, passing the file object as "file" option:
 
 See also example/file.html
 
------
-Build
+------------------------------------------------------------------------
+#### Build
 
-Build or update the browser bundle 'osm-read-pbf.js' with browserify:
+Build or update the browser bundle `osm-read-pbf.js` with browserify:
+```bash
 $ npm run browserify
+```
 
 To install browserify (http://browserify.org/):
+```bash
 $ npm install -g browserify
+```
 
 ------------------------------------------------------------------------
 #### Parse OSM XML from URL Example
