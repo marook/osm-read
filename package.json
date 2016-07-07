@@ -6,7 +6,7 @@
         "osm",
         "openstreetmap"
     ],
-    "version": "0.5.1",
+    "version": "0.6.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/marook/osm-read.git"
