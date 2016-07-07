@@ -292,6 +292,15 @@ describe('osmread', function(){
 
             params.parsedRelations[0].visible.should.be.equal(true);
         });
+
+        it('then way should have center lat="68.9280397" lon="33.1139458"', function(){
+            var center;
+
+            center = params.parsedWays[0].center;
+
+            center.lat.should.be.equal(68.9280397);
+            center.lon.should.be.equal(33.1139458);
+        });
     });
 
     describeTest('test/test.pbf', function(parsedBounds, parsedNodes, parsedWays){

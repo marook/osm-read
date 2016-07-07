@@ -13,6 +13,7 @@
   <node id="304994981" lat="51.5074723" lon="-0.1075014" version="1" changeset="374143" user="Matt" uid="70" visible="true" timestamp="2008-10-16T16:35:57Z"/>
   <node id="304994979" lat="51.507406" lon="-0.1083348" version="4" changeset="2114003" user="jamicu" uid="38244" visible="true" timestamp="2009-08-12T01:33:32Z"/>
   <way id="27776903" visible="true" timestamp="2009-05-31T13:39:15Z" version="3" changeset="1368552" user="Matt" uid="70">
+    <center lat="68.9280397" lon="33.1139458"/>
     <nd ref="304994979"/>
     <nd ref="319408587"/>
     <nd ref="319408586"/>
