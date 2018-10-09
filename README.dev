@@ -38,6 +38,7 @@ js modules for the proto files generated with (see scripts in package.json):
 
 $ npm run buildProto
 
+
 ------------------------------------------------------------------------
 Generating manyNodes.pbf test data
 
@@ -55,7 +56,7 @@ $ git commit -a
 $ npm install
 $ npm test
 $ npm run browserify
-$ xdg-open test/index.html
+$ xdg-open test.html
 $ npm publish
 $ git tag <released version>
 $ git push

@@ -4,18 +4,18 @@
     <title>Browser test suite</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
   </head>
   <body>
     <div id="mocha"></div>
-    <script src="../node_modules/mocha/mocha.js"></script>
-    <script src="../node_modules/should/should.js"></script>
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/should/should.js"></script>
     <script>mocha.setup('bdd')</script>
 
-    <script src="../node_modules/zlibjs/bin/zlib.min.js"></script>
-    <script src="../node_modules/protobufjs/node_modules/bytebuffer/dist/ByteBufferAB.min.js"></script>
+    <script src="node_modules/bytebuffer/dist/bytebuffer.js"></script>
+    <script src="node_modules/zlibjs/bin/zlib.min.js"></script>
 
-    <script src="../osm-read-pbf.js"></script>
+    <script src="osm-read-pbf.js" crossorigin="anonymous"></script>
     <script>
         function require(module) {
             var fakeModules = {
@@ -29,12 +29,10 @@
         }
     </script>
 
-    <script src="zlibBrowserTest.js"></script>
-    <script src="manyNodesTest.js"></script>
-    <script src="pbfTest.js"></script>
+    <script src="test/zlibBrowserTest.js"></script>
+    <script src="test/manyNodesTest.js"></script>
+    <script src="test/pbfTest.js"></script>
 
-    <!-- path to test.pbf is relative to project root because of npm test -->
-    <base href="../">
     <script>
       mocha.run();
     </script>
