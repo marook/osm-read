@@ -2,10 +2,10 @@ var should = require('should');
 var osmread = require('../lib/main');
 
 describe('pbf read', function(){
-    
+
     describe('when parser for test.pbf exists', function(){
         var parser;
-        
+
         before(function(done){
             osmread.createPbfParser({
                 filePath: 'test/test.pbf',

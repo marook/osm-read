@@ -26,7 +26,7 @@ describe('when manyNodes.pbf is parsed', function(){
             }
         });
     });
-    
+
     it('then 3000 nodes are available', function(){
         parsedNodes.length.should.be.equal(3000);
     });
