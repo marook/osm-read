@@ -17,7 +17,7 @@ To run the tests within node.js type:
 $ npm test
 
 To run the tests within the browser you first have to install browserify and http-server:
-$ npm install browserify http-server -g
+$ npm install -g browserify http-server
 
 Then run browserify in order to generate the latest osm-read-pbf.js:
 $ npm run browserify
