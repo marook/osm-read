@@ -16,14 +16,16 @@ context and in the browser.
 To run the tests within node.js type:
 $ npm test
 
-To run the tests within the browser you first have to install browserify:
-$ npm install browserify -g
+To run the tests within the browser you first have to install browserify and http-server:
+$ npm install browserify http-server -g
 
 Then run browserify in order to generate the latest osm-read-pbf.js:
 $ npm run browserify
 
-To finally execute the tests open test/index.html in your favourite
-browser.
+To finally execute the tests open test.html in your favourite
+browser:
+$ http-server -c-1 .
+$ open http://127.0.0.1:8080/test.html
 
 
 ------------------------------------------------------------------------
