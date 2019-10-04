@@ -7,8 +7,8 @@ function portToLocalServerUrl(port){
 }
 
 describe('when local http testserver is running', function(){
-    var localHttpServer, parseNodes;
-    
+    var localHttpServer, parsedNodes;
+
     beforeEach(function(done){
         setUpParsedNodes();
         setUpLocalHttpServer(done);
