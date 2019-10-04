@@ -153,13 +153,9 @@ function describeTest(filePath, describeFilePathSpecificTests){
 
     describe('when ' + filePath + ' is parsed and paused after first node', function(){
         it('then the parser does not process the next junk of work', function(done){
-            var params, parser;
-
-            params = {};
-
+            var parser;
+            var params = {parsedNodes: []};
             var firstNodeCallback = true;
-
-            params.parsedNodes = [];
 
             parser = osmread.parse({
                 filePath: filePath,
@@ -197,13 +193,9 @@ function describeTest(filePath, describeFilePathSpecificTests){
         });
 
         it('then the parser does proceed to end after resume', function(done){
-            var params, parser;
-
-            params = {};
-
+            var parser;
+            var params = { parsedNodes: [] };
             var firstNodeCallback = true;
-
-            params.parsedNodes = [];
 
             parser = osmread.parse({
                 filePath: filePath,
@@ -277,7 +269,7 @@ describe('osmread', function(){
              * a) osmosis did not convert the visible flags from test.xml to test.pbf
              * b) protobufjs did not parse the visible flags from test.pbf
              */
-            
+
             params.parsedNodes[0].visible.should.be.equal(true);
         });
 
