@@ -51,7 +51,7 @@ describe('when local http testserver is running', function(){
                 parsedNodes.push(node);
             },
             error: function(msg){
-                should.fail(msg);
+                should.fail(null, null, msg);
 
                 return done();
             }

@@ -31,7 +31,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
                     params.parsedRelations.push(relation);
                 },
                 error: function(msg){
-                    should.fail(msg);
+                    should.fail(null, null, msg);
 
                     done();
                 }
@@ -143,7 +143,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
                     done();
                 },
                 error: function(msg){
-                    should.fail(msg);
+                    should.fail(null, null, msg);
 
                     done();
                 }
@@ -164,7 +164,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
             parser = osmread.parse({
                 filePath: filePath,
                 endDocument: function(){
-                    should.fail('Paused parser should not reach end of document');
+                    should.fail(null, null, 'Paused parser should not reach end of document');
                 },
                 node: function(node){
                     params.parsedNodes.push(node);
@@ -176,7 +176,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
                     }
                 },
                 error: function(msg){
-                    should.fail(msg);
+                    should.fail(null, null, msg);
                 }
             });
 
@@ -224,7 +224,7 @@ function describeTest(filePath, describeFilePathSpecificTests){
                     }, 0);
                 },
                 error: function(msg){
-                    should.fail(msg);
+                    should.fail(null, null, msg);
                 }
             });
         });

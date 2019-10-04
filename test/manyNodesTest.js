@@ -20,7 +20,7 @@ describe('when manyNodes.pbf is parsed', function(){
                 parsedNodes.push(node);
             },
             error: function(msg){
-                should.fail(msg);
+                should.fail(null, null, msg);
 
                 done();
             }
