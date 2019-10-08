@@ -20,13 +20,13 @@ describe('when manyNodes.pbf is parsed', function(){
                 parsedNodes.push(node);
             },
             error: function(msg){
-                should.fail(msg);
+                should.fail(null, null, msg);
 
                 done();
             }
         });
     });
-    
+
     it('then 3000 nodes are available', function(){
         parsedNodes.length.should.be.equal(3000);
     });

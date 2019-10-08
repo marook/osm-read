@@ -19,7 +19,7 @@
         "protobufjs": "protobufjs/dist/ProtoBuf.noparse.js"
     },
     "scripts": {
-        "test": "mocha test/*.js",
+        "test": "mocha test",
         "buildProto": "pbjs -t static-module -w commonjs lib/proto/fileformat.proto lib/proto/osmformat.proto > lib/proto/index.js",
         "browserify": "browserify ./lib/pbfParser.js --bare -s=pbfParser -d -p [minifyify --map osm-read-pbf.map.json --output osm-read-pbf.map.json] -o osm-read-pbf.js",
         "browserifyDebug": "browserify ./lib/pbfParser.js --bare -s=pbfParser -d -o osm-read-pbf.js"
@@ -36,10 +36,10 @@
         "setimmediate": "1.0.2"
     },
     "devDependencies": {
-        "browserify": "16.2.3",
+        "browserify": "16.5.0",
         "bytebuffer": "5.0.1",
-        "mocha": "1.19.0",
-        "should": "3.3.1",
+        "mocha": "6.2.1",
+        "should": "13.2.3",
         "minifyify": "7.3.5"
     },
     "licenses": [

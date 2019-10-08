@@ -2,16 +2,16 @@ var should = require('should');
 var osmread = require('../lib/main');
 
 describe('pbf read', function(){
-    
+
     describe('when parser for test.pbf exists', function(){
         var parser;
-        
+
         before(function(done){
             osmread.createPbfParser({
                 filePath: 'test/test.pbf',
                 callback: function(err, p){
                     if(err){
-                        should.fail();
+                        should.fail(null, null, err);
                         return done();
                     }
 
@@ -25,7 +25,7 @@ describe('pbf read', function(){
         after(function(done){
             parser.close(function(err){
                 if(err){
-                    should.fail();
+                    should.fail(null, null, err);
                     return done();
                 }
 
@@ -46,7 +46,7 @@ describe('pbf read', function(){
                 osmHeaderBlock = parser.findFileBlocksByBlobType('OSMHeader')[0];
                 parser.readBlock(osmHeaderBlock, function(err, block){
                     if(err){
-                        should.fail();
+                        should.fail(null, null, err);
 
                         return done();
                     }
@@ -75,7 +75,7 @@ describe('pbf read', function(){
                 osmDataBlock = parser.findFileBlocksByBlobType('OSMData')[0];
                 parser.readBlock(osmDataBlock, function(err, block){
                     if(err){
-                        should.fail();
+                        should.fail(null, null, err);
 
                         return done();
                     }
