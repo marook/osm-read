@@ -6,7 +6,7 @@
         "osm",
         "openstreetmap"
     ],
-    "version": "0.6.0",
+    "version": "0.7.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/marook/osm-read.git"
@@ -28,6 +28,7 @@
         "node": ">=0.10.0"
     },
     "dependencies": {
+        "http-server": "^0.11.1",
         "node-xml": "1.0.2",
         "protobufjs": "6.8.8"
     },
@@ -36,11 +37,11 @@
         "setimmediate": "1.0.2"
     },
     "devDependencies": {
-        "browserify": "16.5.0",
+        "browserify": "^16.5.0",
         "bytebuffer": "5.0.1",
+        "minifyify": "7.3.5",
         "mocha": "6.2.1",
-        "should": "13.2.3",
-        "minifyify": "7.3.5"
+        "should": "13.2.3"
     },
     "licenses": [
         {
