@@ -30,7 +30,7 @@
     "dependencies": {
         "http-server": "^0.11.1",
         "node-xml": "1.0.2",
-        "protobufjs": "6.8.8"
+        "protobufjs": "6.11.3"
     },
     "optionalDependencies": {
         "zlibjs": "0.2.0",
